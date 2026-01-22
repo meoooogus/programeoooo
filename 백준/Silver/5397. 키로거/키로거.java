@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 
 class Main {
     //<<BP<A>>Cd-
@@ -19,28 +20,27 @@ class Main {
     }
 
     public static String editor(String input) {
-        int cursor = 0;
         List<Character> list = new LinkedList<>();
+        ListIterator<Character> iter = list.listIterator();
         char c;
         for (int i = 0; i < input.length(); i++) {
             switch (c = input.charAt(i)) {
                 case '<' :
-                    if (cursor > 0)
-                        cursor--;
+                    if (iter.hasPrevious())
+                        iter.previous();
                     break;
                 case '>' :
-                    if (cursor < list.size())
-                        cursor++;
+                    if (iter.hasNext())
+                        iter.next();
                     break;
-                case '-' : // 리스트의 길이가 1 이상이면서, 커서가 1 이상일 때 커서-1번 인덱스를 삭제, 커서--
-                    if (list.size() > 0 && cursor > 0) {
-                        list.remove(cursor-1);
-                        cursor--;
+                case '-' :
+                    if (iter.hasPrevious()) {
+                        iter.previous();
+                        iter.remove();
                     }
                     break;
                 default:
-                    list.add(cursor, c);
-                    cursor++;
+                    iter.add(c);
                     break;
             }
         }

@@ -31,5 +31,5 @@
 ### 메모
  <p>자바에서 제공하는 정렬메서드: <br>
   Arrays.sort(배열), <br>
-  컬렉션.sort(null), 컬렉션.sort(new 비교자) / Collections.sort(컬렉션)</p>
+  컬렉션.sort(null) (자연 정렬), 컬렉션.sort(new 비교자) / Collections.sort(컬렉션)</p>
 

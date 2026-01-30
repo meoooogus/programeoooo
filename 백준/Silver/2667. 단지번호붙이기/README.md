@@ -29,5 +29,7 @@
  <p>첫 번째 줄에는 총 단지수를 출력하시오. 그리고 각 단지내 집의 수를 오름차순으로 정렬하여 한 줄에 하나씩 출력하시오.</p>
 
 ### 메모
- <p>자바에서 제공하는 정렬메서드: Arrays.sort(배열), Collections.sort(컬렉션)</p>
+ <p>자바에서 제공하는 정렬메서드: <br>
+  Arrays.sort(배열), <br>
+  컬렉션.sort(null), 컬렉션.sort(new 비교자) / Collections.sort(컬렉션)</p>
 

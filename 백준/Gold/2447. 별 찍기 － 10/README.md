@@ -34,3 +34,6 @@
 
  <p>첫째 줄부터 N번째 줄까지 별을 출력한다.</p>
 
+### 메모
+ <p>sout이 많을 때는, StringBuilder에 append하여 StringBuilder로 한번에 출력하자.</p>
+

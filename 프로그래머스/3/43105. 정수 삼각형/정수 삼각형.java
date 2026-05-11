@@ -12,12 +12,10 @@ class Solution {
             triangle[i][i] += triangle[i-1][i-1];
         }
         
-        for (int i = 0; i < size; i++) {
-            if (triangle[size-1][i] > answer)
-                answer = triangle[size-1][i];
+        for (int num : triangle[size-1]) {
+            answer = Math.max(answer, num);
         }
         
         return answer;
     }
 }
-//(triangle[i-1][j] > triangle[i-1][j-1] ? triangle[i-1][j] : triangle[i-1][j-1]);

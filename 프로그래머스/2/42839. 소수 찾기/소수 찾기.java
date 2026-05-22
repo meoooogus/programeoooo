@@ -16,7 +16,7 @@ class Solution {
         if (!cur.equals("") && isPrime(Integer.parseInt(cur)))
             primes.add(Integer.parseInt(cur));
         
-        for (int i = 0; i < visited.length; i++) {
+        for (int i = 0; i < chs.length; i++) {
             if (visited[i] == true)
                 continue;
             visited[i] = true;

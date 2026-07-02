@@ -2,7 +2,7 @@ import java.util.*;
 
 class Solution {
     public int solution(String[] friends, String[] gifts) {
-        Map<String, Integer> nameIdx = new HashMap<>();
+        Map<String, Integer> nameIdx = new HashMap<>();    // 이름 인덱스화
         for (int i = 0; i < friends.length; i++)
             nameIdx.put(friends[i], i);
         

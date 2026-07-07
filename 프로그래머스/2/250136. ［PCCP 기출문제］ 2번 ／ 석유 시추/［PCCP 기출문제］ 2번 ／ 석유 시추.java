@@ -1,5 +1,23 @@
 import java.util.*;
 
+/*
+ * [초기 풀이에 대한 효율성 문제]
+ *
+ * 1. DFS 수행 중 덩어리에 포함된 열(HashSet)까지 함께 관리
+ *    -> 탐색과 정답 계산이 섞여 HashSet 관리 비용이 커짐.
+ *
+ * 2. 재귀 DFS 사용
+ *    -> 최대 500x500 입력에서 StackOverflowError(런타임 에러) 발생 가능.
+ *
+ * [개선]
+ *
+ * 1. DFS는 덩어리 번호 부여와 크기 계산만 수행
+ *    -> 탐색과 정답 계산을 분리하여 성능 개선.
+ *
+ * 2. 재귀 DFS 대신 스택을 이용한 반복 DFS 사용
+ *    -> 호출 스택 한계를 피하여 큰 입력에서도 안정적으로 동작.
+ */
+
 class Solution {
     private static int[] dr = {-1, 1, 0, 0};
     private static int[] dc = {0, 0, -1, 1};

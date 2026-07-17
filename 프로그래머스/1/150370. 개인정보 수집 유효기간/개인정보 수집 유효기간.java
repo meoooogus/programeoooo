@@ -25,7 +25,7 @@ class Solution {
     }
 
     private int convertDay(String date) {
-        String[] ymd = date.split("\\.");
+        String[] ymd = date.split("\\.");    //split의 인자는 정규표현식을 사용하기 때문에 "."을 입력하면 아무 문자를 기준으로 나누게 됨 -> 이스케이프(\\)로 나누기
 
         int y = Integer.parseInt(ymd[0]);
         int m = Integer.parseInt(ymd[1]);

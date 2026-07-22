@@ -26,6 +26,7 @@ class Solution {
             if (!map1.containsKey(key))
                 union += map2.get(key);
         }
+        // 정수 나눗셈 방지를 위해 double로 형변환
         double result = (double) inter / union * 65536;
         return (int) result;
     }

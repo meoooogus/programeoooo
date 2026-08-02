@@ -1,5 +1,9 @@
 import java.util.*;
-
+// idx 정렬을 직접 구현하지 않고,
+// Arrays.sort에 comparator(비교 메서드)를 넘기면 쉽게 정렬된다.
+//
+// Arrays.sort(idx, (a, b) -> compareFileName(splits.get(a), splits.get(b)));
+// 비교 기준만 정의하면 위치 탐색·이동은 라이브러리가 처리한다.
 class Solution {
     public String[] solution(String[] files) {
         List<String[]> splits = new ArrayList<>();

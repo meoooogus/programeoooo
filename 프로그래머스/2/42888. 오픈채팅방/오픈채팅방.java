@@ -1,44 +1,21 @@
 import java.util.*;
 
 class Solution {
-    static Map<String, String> userMap = new HashMap<>();
-    static List<String> answer = new ArrayList<>();
     public String[] solution(String[] record) {
+        Map<String, String> names = new HashMap<>();
+        List<String[]> events = new ArrayList<>(); // {"Enter"/"Leave", uid}
+
         for (String log : record) {
             String[] s = log.split(" ");
-            String cmd = s[0];
-            switch (cmd) {
-                case "Enter":
-                    enter(s[1], s[2]);
-                    break;
-                case "Leave":
-                    leave(s[1]);
-                    break;
-                case "Change":
-                    setName(s[1], s[2]);
-                    break;
-            }
+            if (!s[0].equals("Leave")) names.put(s[1], s[2]); // Enter, Change
+            if (!s[0].equals("Change")) events.add(new String[] {s[0], s[1]}); // Enter, Leave
         }
-        for (int i = 0; i < answer.size(); i++) {
-            String[] s = answer.get(i).split(" ");
-            if (s[1].equals("in")) {
-                s[1] = "님이 들어왔습니다.";
-            } else {
-                s[1] = "님이 나갔습니다.";
-            }
-            answer.set(i, userMap.get(s[0]) + s[1]);
+
+        List<String> answer = new ArrayList<>();
+        for (String[] e : events) {
+            String msg = e[0].equals("Enter") ? "님이 들어왔습니다." : "님이 나갔습니다.";
+            answer.add(names.get(e[1]) + msg);
         }
         return answer.toArray(new String[0]);
-    }
-    
-    private void enter(String uid, String name) {
-        answer.add(uid + " in");
-        setName(uid, name);
-    }
-    private void leave(String uid) {
-        answer.add(uid + " out");
-    }
-    private void setName(String uid, String name) {
-        userMap.put(uid, name);
     }
 }

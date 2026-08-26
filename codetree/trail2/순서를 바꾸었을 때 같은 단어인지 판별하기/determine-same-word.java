@@ -13,9 +13,8 @@ public class Main {
         char[] chars1 = word1.toCharArray();
         char[] chars2 = word2.toCharArray();
         Arrays.sort(chars1); Arrays.sort(chars2);
-        for (int i = 0; i < chars1.length; i++) {
-            if (chars1[i] != chars2[i]) return "No";
-        }
-        return "Yes";
+        String sortedWord1 = new String(chars1);
+        String sortedWord2 = new String(chars2);
+        return sortedWord1.equals(sortedWord2) ? "Yes" : "No";
     }
 }

@@ -29,16 +29,21 @@ public class Main {
         }
         int curA = 0, curB = 0;
         int totalTime = 0;
-        int status = 0; int prev = 0;
+        int lastLeader = 0;
         int answer = 0;
         for (int i = 0; i < n; i++) totalTime += A[i][1];
         for (int i = 0; i < totalTime; i++) {
             curA += vA.get(i); curB += vB.get(i);
-            prev = status;
-            if (curA < curB) status = -1;
-            else if (curA > curB) status = 1;
-            if (prev != status) answer++;
+            int cur;
+            if (curA < curB) cur = -1;
+            else if (curA > curB) cur = 1;
+            else cur = 0;
+            
+            if (cur != 0) {
+                if (lastLeader != 0 && cur != lastLeader) answer++;
+                lastLeader = cur;
+            }
         }
-        System.out.println(answer - 1);
+        System.out.println(answer);
     }
 }

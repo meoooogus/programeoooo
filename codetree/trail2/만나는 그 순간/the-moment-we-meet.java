@@ -6,7 +6,6 @@ public class Main {
     public static int[] t = new int[1000];
     public static char[] d2 = new char[1000];
     public static int[] t2 = new int[1000];
-    static final int OFFSET = 1000 * 1000;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
